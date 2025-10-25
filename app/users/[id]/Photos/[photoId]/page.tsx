@@ -1,10 +1,17 @@
 import React from "react";
 
-interface Props {
-  params: { id: number; photoId: number; };
-}
+//----- This is work only next v 13,14 
+// interface Props {
+//   params: { id: number; photoId: number; };
+// }
 
-const photoPage = ({ params: { id, photoId } }: Props) => {
+//for next v15,16
+interface Props {
+ params: Promise<{ id: string; photoId: string }>
+ }
+
+const photoPage = async({ params }: Props) => {
+   const { id, photoId } = await params;
   return <div>photoPage {id} {photoId}</div>;
 };
 
